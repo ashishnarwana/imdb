@@ -37,7 +37,7 @@ movieRouter.get(
             ? { rating: -1 }
             : { _id: -1 };
 
-            console.log('..111');
+      
     const count = await Movie.count({
       ...nameFilter,
       ...categoryFilter,
@@ -125,10 +125,7 @@ movieRouter.put(
   '/:id',
   isAuth,
   expressAsyncHandler(async (req, res) => {
-
-
     try {
-
       const movieId = req.params.id;
       const movie = await Movie.findById(movieId);
       if (movie) {
@@ -136,7 +133,7 @@ movieRouter.put(
         movie.image = req.body.image;
         movie.genre = req.body.genre;
         movie.releaseDate = req.body.releaseDate;
-        movie.details = req.body.description;
+        movie.description = req.body.details;
         const updatedMovie = await movie.save();
         res.send({ message: 'Movie Updated', movie: updatedMovie });
       } else {

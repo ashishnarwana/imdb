@@ -4,38 +4,31 @@ import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 import { signout } from './actions/userActions';
 import AdminRoute from './components/AdminRoute';
 import PrivateRoute from './components/PrivateRoute';
-import CartScreen from './screens/CartScreen';
+
 import HomeScreen from './screens/HomeScreen';
-import OrderHistoryScreen from './screens/OrderHistoryScreen';
-import OrderScreen from './screens/OrderScreen';
-import PaymentMethodScreen from './screens/PaymentMethodScreen';
-import PlaceOrderScreen from './screens/PlaceOrderScreen';
+
 import MovieListScreen from './screens/MovieListScreen';
 import MovieScreen from './screens/MovieScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import RegisterScreen from './screens/RegisterScreen';
-import ShippingAddressScreen from './screens/ShippingAddressScreen';
+
 import SigninScreen from './screens/SigninScreen';
 import MovieEditScreen from './screens/MovieEditScreen';
-import OrderListScreen from './screens/OrderListScreen';
+
 import UserListScreen from './screens/UserListScreen';
 import UserEditScreen from './screens/UserEditScreen';
 import SellerRoute from './components/SellerRoute';
-import SellerScreen from './screens/SellerScreen';
+
 import SearchBox from './components/SearchBox';
 import SearchScreen from './screens/SearchScreen';
 import { listMovieCategories } from './actions/movieActions'
 import LoadingBox from './components/LoadingBox';
 import MessageBox from './components/MessageBox';
-import MapScreen from './screens/MapScreen';
-import DashboardScreen from './screens/DashboardScreen';
-import SupportScreen from './screens/SupportScreen';
-import ChatBox from './components/ChatBox';
 
 function App() {
- // const cart = useSelector((state) => state.cart);
+  // const cart = useSelector((state) => state.cart);
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
- // const { cartItems } = cart;
+  // const { cartItems } = cart;
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
   const dispatch = useDispatch();
@@ -81,9 +74,7 @@ function App() {
                   <li>
                     <Link to="/profile">User Profile</Link>
                   </li>
-                  <li>
-                    <Link to="/orderhistory">Order History</Link>
-                  </li>
+
                   <li>
                     <Link to="#signout" onClick={signoutHandler}>
                       Sign Out
@@ -100,18 +91,14 @@ function App() {
                   Admin <i className="fa fa-caret-down"></i>
                 </Link>
                 <ul className="dropdown-content">
-                  <li>
-                    <Link to="/dashboard">Dashboard</Link>
-                  </li>
+
                   <li>
                     <Link to="/movielist">Movies</Link>
                   </li>
                   <li>
                     <Link to="/userlist">Users</Link>
                   </li>
-                  <li>
-                    <Link to="/support">Support</Link>
-                  </li>
+
                 </ul>
               </div>
             )}
@@ -149,9 +136,7 @@ function App() {
         </aside>
         <main>
           <Routes>
-            <Route path="/seller/:id" element={<SellerScreen />}></Route>
-            <Route path="/cart" element={<CartScreen />}></Route>
-            <Route path="/cart/:id" element={<CartScreen />}></Route>
+
             <Route
               path="/movie/:id"
               element={<MovieScreen />}
@@ -164,14 +149,7 @@ function App() {
             ></Route>
             <Route path="/signin" element={<SigninScreen />}></Route>
             <Route path="/register" element={<RegisterScreen />}></Route>
-            <Route path="/shipping" element={<ShippingAddressScreen />}></Route>
-            <Route path="/payment" element={<PaymentMethodScreen />}></Route>
-            <Route path="/placeorder" element={<PlaceOrderScreen />}></Route>
-            <Route path="/order/:id" element={<OrderScreen />}></Route>
-            <Route
-              path="/orderhistory"
-              element={<OrderHistoryScreen />}
-            ></Route>
+
             <Route path="/search/name" element={<SearchScreen />} exact></Route>
             <Route
               path="/search/name/:name"
@@ -202,14 +180,7 @@ function App() {
                 </PrivateRoute>
               }
             />
-            <Route
-              path="/map"
-              element={
-                <PrivateRoute>
-                  <MapScreen />
-                </PrivateRoute>
-              }
-            />
+
 
             <Route
               path="/movielist"
@@ -228,14 +199,7 @@ function App() {
                 </AdminRoute>
               }
             />
-            <Route
-              path="/orderlist"
-              element={
-                <AdminRoute>
-                  <OrderListScreen />
-                </AdminRoute>
-              }
-            />
+
             <Route
               path="/userlist"
               element={
@@ -252,22 +216,8 @@ function App() {
                 </AdminRoute>
               }
             />
-            <Route
-              path="/dashboard"
-              element={
-                <AdminRoute>
-                  <DashboardScreen />
-                </AdminRoute>
-              }
-            />
-            <Route
-              path="/support"
-              element={
-                <AdminRoute>
-                  <SupportScreen />
-                </AdminRoute>
-              }
-            />
+
+
             <Route
               path="/movielist/seller"
               element={
@@ -276,21 +226,14 @@ function App() {
                 </SellerRoute>
               }
             />
-            <Route
-              path="/orderlist/seller"
-              element={
-                <SellerRoute>
-                  <OrderListScreen />
-                </SellerRoute>
-              }
-            />
+
 
             <Route path="/" element={<HomeScreen />} exact></Route>
           </Routes>
         </main>
         <footer className="row center">
-          {userInfo && !userInfo.isAdmin && <ChatBox userInfo={userInfo} />}
-          <div>All right reserved</div>{' '}
+
+          <div>All right Ashish </div>{' '}
         </footer>
       </div>
     </BrowserRouter>
