@@ -5,27 +5,10 @@ step 3 :- IMDB/frontend  and runn npm i or yarn
 
 step4:- signup and update user in mongodb is isAdmin : true for admin user
 
-/** 
-* Paste one or more documents here
-*/
-{
-    "name": "admin",
-    "email": "admin@gmail.com",
-    "password": "$2a$08$a4.L1SbO0ah8YJnHsD8pAubXT4sC/ub6gh0M9pKB43G3HJj.aB4My",
-    "isAdmin": true,
-    "isSeller": true,
-    "seller": {
-        "rating": 0,
-        "numReviews": 0
-    },
-    "createdAt": {
-        "$date": "2022-02-07T11:14:47.737Z"
-    },
-    "updatedAt": {
-        "$date": "2022-02-07T11:14:47.737Z"
-    },
-    "__v": 0
-}
-
 step5: login with admin user and add movies 
 
+API :-  
+
+
+http://127.0.0.1:5000/api/movies
+http://127.0.0.1:5000/api/movies/id
